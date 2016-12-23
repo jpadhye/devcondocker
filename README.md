@@ -21,11 +21,11 @@ Although it goes against Docker philosophy, I decided to try out if I can use a 
 
 Some helpful docker commands:
 
-Build the container  : `docker build --build-arg USERID=`id -u $USER` --build-arg GROUPID=`id -g $USER` --build-arg USERNM=$USER -t devcondocker .`
-Execute the container: `docker run -h devcondocker --name devcondocker -itd devcondocker`
-Connect to container : `docker exec -u `$USER` -it devcondocker bash -l`
-Remove stale containers: `docker rm $(docker ps -qa --no-trunc --filter "status=exited")`
-Remove stale images: `docker rmi $(docker images --filter "dangling=true" -q --no-trunc)`
+1. Build the container  : `docker build --build-arg USERID=`id -u $USER` --build-arg GROUPID=`id -g $USER` --build-arg USERNM=$USER -t devcondocker .`
+2. Execute the container: `docker run -h devcondocker --name devcondocker -itd devcondocker`
+3. Connect to container : `docker exec -u `$USER` -it devcondocker bash -l`
+4. Remove stale containers: `docker rm $(docker ps -qa --no-trunc --filter "status=exited")`
+5. Remove stale images: `docker rmi $(docker images --filter "dangling=true" -q --no-trunc)`
 
 
 
