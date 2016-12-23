@@ -1,0 +1,5 @@
+# exclude everything
+keys/*
+
+# exception to the rule
+!keys/.gitkeep
