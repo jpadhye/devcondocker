@@ -6,6 +6,7 @@ I wanted to play around with Kafka, Zookeeper, Cassandra cluster and wanted to t
 
 ##Solution: 
 Although it goes against Docker philosophy, I decided to try out if I can use a Docker container based development environment, as this is just for experimental purpose. I wrote this Dockerfile and it gives following things:
+
 1. Ubuntu 16.04 based container.
 2. Installation of Kafka, Zookeeper, Cassandra and Eclipse from source (without package manager)
 3. Adds your keys and demonstrates how to download your source code
