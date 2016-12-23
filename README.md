@@ -24,15 +24,17 @@ Some helpful docker commands:
 
 1. Build the container  : `docker build --build-arg USERID=`id -u $USER` --build-arg GROUPID=`id -g $USER` --build-arg USERNM=$USER -t devcondocker .`
 2. Execute the container: `docker run -h devcondocker --name devcondocker -itd devcondocker`
-3. Connect to container : `docker exec -u `$USER` -it devcondocker bash -l`
+3. Connect to container : `docker exec -u $USER -it devcondocker bash -l`
 4. Remove stale containers: `docker rm $(docker ps -qa --no-trunc --filter "status=exited")`
 5. Remove stale images: `docker rmi $(docker images --filter "dangling=true" -q --no-trunc)`
 
 
 
-##Problems
+##Troubleshooting
 
-1. ~/devcondocker (master) $ ./run.sh 
+1. ##Problem 1: 
+
+~/devcondocker (master) $ ./run.sh 
 + open -a XQuartz
 ++ ifconfig en0
 ++ grep inet
@@ -42,10 +44,11 @@ Some helpful docker commands:
 + xhost + 192.168.2.194
 xhost:  unable to open display "/private/tmp/com.apple.launchd.x8oFK5alZM/org.macosforge.xquartz:0"
 
+###Solution: 
 
-Solution: 
-a. brew cask uninstall xquartz && sudo rm -rf /opt/X11* /Library/Launch*/org.macosforge.xquartz.* /Applications/Utilities/XQuartz.app /etc/*paths.d/*XQuartz  ~/.serverauth*  ~/.Xauthorit*  ~/.cache  ~/.rnd  ~/Library/Caches/org.macosforge.xquartz.X11 ~/Library/Logs/X11 /private/tmp/com.apple.launchd.* 
-b. Restart the system
+1. Restart the system. If this doesn't work do step 2 and repeat this step.
+2. brew cask uninstall xquartz && sudo rm -rf /opt/X11* /Library/Launch*/org.macosforge.xquartz.* /Applications/Utilities/XQuartz.app /etc/*paths.d/*XQuartz  ~/.serverauth*  ~/.Xauthorit*  ~/.cache  ~/.rnd  ~/Library/Caches/org.macosforge.xquartz.X11 ~/Library/Logs/X11 /private/tmp/com.apple.launchd.* 
+
 
 
 
